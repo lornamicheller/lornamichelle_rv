@@ -4,15 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lorna M. Rivera Vázquez | Front-End Developer</title>
-  <script type="module" crossorigin src="/lornamichelle_rv/assets/main-DYMG3you.js"></script>
-  <link rel="modulepreload" crossorigin href="/lornamichelle_rv/assets/Grainient-kjrnAhGZ.js">
-  <link rel="stylesheet" crossorigin href="/lornamichelle_rv/assets/Grainient-Du5Od4g3.css">
+  <script type="module" crossorigin src="/lornamichelle_rv/assets/main-tQJSjden.js"></script>
+  <link rel="modulepreload" crossorigin href="/lornamichelle_rv/assets/Grainient-qc-kneZG.js">
+  <link rel="stylesheet" crossorigin href="/lornamichelle_rv/assets/Grainient-fEkBJyxo.css">
 </head>
 <body class="text-zinc-300 font-sans antialiased selection:bg-purple-500/30">
     
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 z-[100] bg-zinc-950 flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="w-64 h-1 bg-zinc-800 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 animate-loading-bar"></div>
+        </div>
+        <div class="mt-6 text-fuchsia-400 font-mono text-sm tracking-[0.3em] animate-pulse">INITIALIZING...</div>
+    </div>
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                if(loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.remove(), 700);
+                }
+            }, 1500);
+        });
+
+        // Intersection Observer for animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        if (entry.target.classList.contains('progress-fill')) {
+                            entry.target.style.width = entry.target.getAttribute('data-width');
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-on-scroll, .progress-fill').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
     <!-- Navigation Toggle -->
     <div class="fixed top-6 right-6 z-50">
-        <a href="/cybersecurity.html" class="px-5 py-2.5 bg-zinc-900/80 backdrop-blur-md hover:bg-zinc-800 text-sm font-medium rounded-full border border-zinc-800 hover:border-zinc-600 transition-all text-white shadow-xl flex items-center gap-2 group">
+        <a href="./cybersecurity.html" class="px-5 py-2.5 bg-zinc-900/80 backdrop-blur-md hover:bg-zinc-800 text-sm font-medium rounded-full border border-zinc-800 hover:border-zinc-600 transition-all text-white shadow-xl flex items-center gap-2 group">
             <span class="hidden sm:inline">View Cybersecurity Resume</span>
             <span class="sm:hidden">Cybersecurity</span>
             <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7-7m7-7H3"></path></svg>
@@ -60,6 +97,10 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg>
                     U.S. Citizen
                 </span>
+                <a href="https://www.linkedin.com/in/lornamicheller/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-full bg-violet-900/30 border border-violet-500/50 text-violet-300 hover:bg-violet-800/50 hover:text-white transition-all shadow-[0_0_15px_rgba(139,92,246,0.2)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] group">
+                    <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn Profile
+                </a>
             </div>
             
             <a href="#about" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-zinc-800 hover:bg-zinc-700 text-white transition-colors animate-bounce">
@@ -90,24 +131,60 @@
             </h2>
             
             <div class="grid md:grid-cols-2 gap-8">
+                <!-- Core Frontend Skills with Progress Bars -->
                 <div class="animate-on-scroll stagger-1 bg-zinc-900/80 border border-zinc-800 rounded-2xl p-8 hover:border-violet-500/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] transition-all relative group overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <h3 class="text-xl font-semibold text-white mb-6 relative z-10 flex items-center gap-3">
                         <svg class="w-6 h-6 text-violet-400 animate-glow-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                        Front-End Development
+                        Core Technologies
                     </h3>
-                    <div class="flex flex-wrap gap-2 relative z-10">
-                        <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded border border-violet-500/20 text-sm group-hover:border-violet-500/40 transition-colors">React</span>
-                        <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded border border-violet-500/20 text-sm group-hover:border-violet-500/40 transition-colors">Angular</span>
-                        <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded border border-violet-500/20 text-sm group-hover:border-violet-500/40 transition-colors">JavaScript (ES6+)</span>
-                        <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded border border-violet-500/20 text-sm group-hover:border-violet-500/40 transition-colors">TypeScript</span>
-                        <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded border border-violet-500/20 text-sm group-hover:border-violet-500/40 transition-colors">HTML5 & CSS3</span>
-                        <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded border border-violet-500/20 text-sm group-hover:border-violet-500/40 transition-colors">Tailwind CSS</span>
-                        <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded border border-violet-500/20 text-sm group-hover:border-violet-500/40 transition-colors">REST APIs</span>
-                        <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded border border-violet-500/20 text-sm group-hover:border-violet-500/40 transition-colors">SQL</span>
-                        <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded border border-violet-500/20 text-sm group-hover:border-violet-500/40 transition-colors">Python</span>
-                        <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded border border-violet-500/20 text-sm group-hover:border-violet-500/40 transition-colors">Responsive Design</span>
-                        <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded border border-violet-500/20 text-sm group-hover:border-violet-500/40 transition-colors">API Integration</span>
+                    
+                    <div class="space-y-5 relative z-10">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-zinc-300 font-medium">React / Next.js</span>
+                                <span class="text-violet-400">90%</span>
+                            </div>
+                            <div class="w-full h-2 bg-zinc-800/50 rounded-full overflow-hidden border border-zinc-700/50">
+                                <div class="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 progress-fill" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-zinc-300 font-medium">JavaScript (ES6+) / TypeScript</span>
+                                <span class="text-violet-400">85%</span>
+                            </div>
+                            <div class="w-full h-2 bg-zinc-800/50 rounded-full overflow-hidden border border-zinc-700/50">
+                                <div class="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 progress-fill" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-zinc-300 font-medium">HTML5 & CSS3</span>
+                                <span class="text-violet-400">95%</span>
+                            </div>
+                            <div class="w-full h-2 bg-zinc-800/50 rounded-full overflow-hidden border border-zinc-700/50">
+                                <div class="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 progress-fill" data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-zinc-300 font-medium">Tailwind CSS</span>
+                                <span class="text-violet-400">90%</span>
+                            </div>
+                            <div class="w-full h-2 bg-zinc-800/50 rounded-full overflow-hidden border border-zinc-700/50">
+                                <div class="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 progress-fill" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-zinc-300 font-medium">Angular</span>
+                                <span class="text-violet-400">75%</span>
+                            </div>
+                            <div class="w-full h-2 bg-zinc-800/50 rounded-full overflow-hidden border border-zinc-700/50">
+                                <div class="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 progress-fill" data-width="75%"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -116,14 +193,14 @@
                         <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         <h3 class="text-xl font-semibold text-white mb-6 relative z-10 flex items-center gap-3">
                             <svg class="w-6 h-6 text-fuchsia-400 animate-glow-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
-                            Tools & Workflow
+                            Frameworks & Libraries
                         </h3>
                         <div class="flex flex-wrap gap-2 relative z-10">
-                            <span class="px-3 py-1 bg-zinc-800/80 text-zinc-300 rounded border border-zinc-700 text-sm group-hover:border-fuchsia-500/30 transition-colors">Git & GitHub</span>
-                            <span class="px-3 py-1 bg-zinc-800/80 text-zinc-300 rounded border border-zinc-700 text-sm group-hover:border-fuchsia-500/30 transition-colors">CI/CD Concepts</span>
-                            <span class="px-3 py-1 bg-zinc-800/80 text-zinc-300 rounded border border-zinc-700 text-sm group-hover:border-fuchsia-500/30 transition-colors">VS Code</span>
-                            <span class="px-3 py-1 bg-zinc-800/80 text-zinc-300 rounded border border-zinc-700 text-sm group-hover:border-fuchsia-500/30 transition-colors">Chrome DevTools</span>
-                            <span class="px-3 py-1 bg-zinc-800/80 text-zinc-300 rounded border border-zinc-700 text-sm group-hover:border-fuchsia-500/30 transition-colors">AI Tools (Cursor, Gemini, Claude)</span>
+                            <span class="px-3 py-1 bg-fuchsia-500/10 text-fuchsia-300 rounded-full border border-fuchsia-500/20 text-sm group-hover:border-fuchsia-500/40 transition-colors">Redux</span>
+                            <span class="px-3 py-1 bg-fuchsia-500/10 text-fuchsia-300 rounded-full border border-fuchsia-500/20 text-sm group-hover:border-fuchsia-500/40 transition-colors">Zustand</span>
+                            <span class="px-3 py-1 bg-fuchsia-500/10 text-fuchsia-300 rounded-full border border-fuchsia-500/20 text-sm group-hover:border-fuchsia-500/40 transition-colors">Framer Motion</span>
+                            <span class="px-3 py-1 bg-fuchsia-500/10 text-fuchsia-300 rounded-full border border-fuchsia-500/20 text-sm group-hover:border-fuchsia-500/40 transition-colors">REST APIs</span>
+                            <span class="px-3 py-1 bg-fuchsia-500/10 text-fuchsia-300 rounded-full border border-fuchsia-500/20 text-sm group-hover:border-fuchsia-500/40 transition-colors">GraphQL</span>
                         </div>
                     </div>
                     
@@ -131,13 +208,14 @@
                         <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         <h3 class="text-xl font-semibold text-white mb-6 relative z-10 flex items-center gap-3">
                             <svg class="w-6 h-6 text-pink-400 animate-glow-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                            IT & Security (Bonus)
+                            Tools & Workflow
                         </h3>
                         <div class="flex flex-wrap gap-2 relative z-10">
-                            <span class="px-3 py-1 bg-zinc-800/80 text-zinc-400 rounded border border-zinc-700 text-sm group-hover:border-pink-500/30 transition-colors">Active Directory</span>
-                            <span class="px-3 py-1 bg-zinc-800/80 text-zinc-400 rounded border border-zinc-700 text-sm group-hover:border-pink-500/30 transition-colors">IAM</span>
-                            <span class="px-3 py-1 bg-zinc-800/80 text-zinc-400 rounded border border-zinc-700 text-sm group-hover:border-pink-500/30 transition-colors">Windows Server</span>
-                            <span class="px-3 py-1 bg-zinc-800/80 text-zinc-400 rounded border border-zinc-700 text-sm group-hover:border-pink-500/30 transition-colors">Virtual Machines</span>
+                            <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full border border-pink-500/20 text-sm group-hover:border-pink-500/40 transition-colors">Git & GitHub</span>
+                            <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full border border-pink-500/20 text-sm group-hover:border-pink-500/40 transition-colors">CI/CD Concepts</span>
+                            <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full border border-pink-500/20 text-sm group-hover:border-pink-500/40 transition-colors">VS Code</span>
+                            <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full border border-pink-500/20 text-sm group-hover:border-pink-500/40 transition-colors">Figma</span>
+                            <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full border border-pink-500/20 text-sm group-hover:border-pink-500/40 transition-colors">AI Tools (Cursor, Gemini)</span>
                         </div>
                     </div>
                 </div>
@@ -265,10 +343,16 @@
         <div class="max-w-2xl mx-auto animate-on-scroll">
             <h2 class="text-4xl font-bold text-white mb-6">Let's Build Something</h2>
             <p class="text-zinc-400 mb-10 text-lg">I'm currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-            <a href="mailto:lornam02091@gmail.com" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg hover:from-purple-500 hover:to-pink-500 transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] hover:-translate-y-1">
-                lornam02091@gmail.com
-            </a>
-            <p class="mt-6 text-zinc-500">Phone: 787-205-3124</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="mailto:lornam02091@gmail.com" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg hover:from-purple-500 hover:to-pink-500 transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] hover:-translate-y-1">
+                    lornam02091@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/lornamicheller/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-zinc-800 text-white font-bold text-lg hover:bg-zinc-700 transition-all shadow-lg hover:-translate-y-1 border border-zinc-700">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+            <p class="mt-8 text-zinc-500">Phone: 787-205-3124</p>
         </div>
     </section>
 
@@ -276,20 +360,5 @@
         <p>&copy; 2026 Lorna M. Rivera Vázquez. Built with HTML, Tailwind CSS & Vanilla JS.</p>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-
-            document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                observer.observe(el);
-            });
-        });
-    </script>
 </body>
 </html>

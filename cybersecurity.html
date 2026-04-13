@@ -4,15 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lorna M. Rivera Vázquez | Cybersecurity Specialist</title>
-  <script type="module" crossorigin src="/lornamichelle_rv/assets/cybersecurity-BmrbAfWx.js"></script>
-  <link rel="modulepreload" crossorigin href="/lornamichelle_rv/assets/Grainient-kjrnAhGZ.js">
-  <link rel="stylesheet" crossorigin href="/lornamichelle_rv/assets/Grainient-Du5Od4g3.css">
+  <script type="module" crossorigin src="/lornamichelle_rv/assets/cybersecurity-Kb-jcKqX.js"></script>
+  <link rel="modulepreload" crossorigin href="/lornamichelle_rv/assets/Grainient-qc-kneZG.js">
+  <link rel="stylesheet" crossorigin href="/lornamichelle_rv/assets/Grainient-fEkBJyxo.css">
 </head>
 <body class="text-slate-300 font-mono antialiased selection:bg-cyan-500/30">
     
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 z-[100] bg-slate-950 flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="w-64 h-1 bg-slate-800 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 animate-loading-bar"></div>
+        </div>
+        <div class="mt-6 text-cyan-400 font-mono text-sm tracking-[0.3em] animate-pulse">INITIALIZING SECURE CONNECTION...</div>
+    </div>
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                if(loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.remove(), 700);
+                }
+            }, 1500);
+        });
+
+        // Intersection Observer for animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        if (entry.target.classList.contains('progress-fill')) {
+                            entry.target.style.width = entry.target.getAttribute('data-width');
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-on-scroll, .progress-fill').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
     <!-- Navigation Toggle -->
     <div class="fixed top-6 right-6 z-50">
-        <a href="/" class="px-5 py-2.5 bg-slate-900/80 backdrop-blur-md hover:bg-slate-800 text-sm font-medium rounded-sm border border-cyan-900 hover:border-cyan-500 transition-all text-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.1)] flex items-center gap-2 group">
+        <a href="./" class="px-5 py-2.5 bg-slate-900/80 backdrop-blur-md hover:bg-slate-800 text-sm font-medium rounded-sm border border-cyan-900 hover:border-cyan-500 transition-all text-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.1)] flex items-center gap-2 group">
             <span class="hidden sm:inline">View Front-End Resume</span>
             <span class="sm:hidden">Front-End</span>
             <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7-7m7-7H3"></path></svg>
@@ -62,6 +99,10 @@
                     <svg class="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                     Open to Relocation
                 </span>
+                <a href="https://www.linkedin.com/in/lornamicheller/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 border-l-2 border-cyan-500 pl-3 text-cyan-400 hover:text-cyan-300 transition-colors group">
+                    <svg class="w-4 h-4 text-cyan-500 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn Profile
+                </a>
             </div>
             
             <a href="#contact" class="inline-block px-8 py-3 bg-cyan-950/50 border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-slate-950 transition-all shadow-[0_0_15px_rgba(6,182,212,0.2)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] uppercase tracking-wider text-sm font-bold">
@@ -100,19 +141,54 @@
                         <svg class="w-6 h-6 text-cyan-400 animate-glow-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                         Cybersecurity & IT
                     </h3>
-                    <ul class="space-y-3 text-sm text-slate-300 relative z-10">
-                        <li class="flex items-center gap-3 group-hover:text-cyan-100 transition-colors"><span class="text-cyan-500 group-hover:text-cyan-400 group-hover:animate-pulse">▹</span> Identity and Access Management (IAM)</li>
-                        <li class="flex items-center gap-3 group-hover:text-cyan-100 transition-colors"><span class="text-cyan-500 group-hover:text-cyan-400 group-hover:animate-pulse">▹</span> Active Directory & Group Policy</li>
-                        <li class="flex items-center gap-3 group-hover:text-cyan-100 transition-colors"><span class="text-cyan-500 group-hover:text-cyan-400 group-hover:animate-pulse">▹</span> User Account Provisioning & Lifecycle</li>
-                        <li class="flex items-center gap-3 group-hover:text-cyan-100 transition-colors"><span class="text-cyan-500 group-hover:text-cyan-400 group-hover:animate-pulse">▹</span> Windows Server & System Administration</li>
-                        <li class="flex items-center gap-3 group-hover:text-cyan-100 transition-colors"><span class="text-cyan-500 group-hover:text-cyan-400 group-hover:animate-pulse">▹</span> Virtualization (VirtualBox, VMware)</li>
-                        <li class="flex items-center gap-3 group-hover:text-cyan-100 transition-colors"><span class="text-cyan-500 group-hover:text-cyan-400 group-hover:animate-pulse">▹</span> Network Troubleshooting (TCP/IP, DNS, DHCP)</li>
-                        <li class="flex items-center gap-3 group-hover:text-cyan-100 transition-colors"><span class="text-cyan-500 group-hover:text-cyan-400 group-hover:animate-pulse">▹</span> Access Control & Security Best Practices</li>
-                        <li class="flex items-center gap-3 group-hover:text-cyan-100 transition-colors"><span class="text-cyan-500 group-hover:text-cyan-400 group-hover:animate-pulse">▹</span> Service Desk & Ticketing Systems (ServiceNow)</li>
-                        <li class="flex items-center gap-3 group-hover:text-cyan-100 transition-colors"><span class="text-cyan-500 group-hover:text-cyan-400 group-hover:animate-pulse">▹</span> Incident Resolution & SLA Compliance</li>
-                        <li class="flex items-center gap-3 group-hover:text-cyan-100 transition-colors"><span class="text-cyan-500 group-hover:text-cyan-400 group-hover:animate-pulse">▹</span> Endpoint & Device Management</li>
-                        <li class="flex items-center gap-3 group-hover:text-cyan-100 transition-colors"><span class="text-cyan-500 group-hover:text-cyan-400 group-hover:animate-pulse">▹</span> Technical Documentation</li>
-                    </ul>
+                    
+                    <div class="space-y-5 relative z-10">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-slate-300 font-medium">Identity & Access Management (IAM)</span>
+                                <span class="text-cyan-400">90%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-800/50 rounded-full overflow-hidden border border-slate-700/50">
+                                <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 progress-fill" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-slate-300 font-medium">Active Directory & Group Policy</span>
+                                <span class="text-cyan-400">85%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-800/50 rounded-full overflow-hidden border border-slate-700/50">
+                                <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 progress-fill" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-slate-300 font-medium">Windows Server & System Admin</span>
+                                <span class="text-cyan-400">80%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-800/50 rounded-full overflow-hidden border border-slate-700/50">
+                                <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 progress-fill" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-slate-300 font-medium">Network Troubleshooting (TCP/IP, DNS)</span>
+                                <span class="text-cyan-400">75%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-800/50 rounded-full overflow-hidden border border-slate-700/50">
+                                <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 progress-fill" data-width="75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-slate-300 font-medium">Incident Resolution & SLA Compliance</span>
+                                <span class="text-cyan-400">95%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-800/50 rounded-full overflow-hidden border border-slate-700/50">
+                                <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 progress-fill" data-width="95%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="flex flex-col gap-8">
@@ -281,11 +357,17 @@
                 Establish Connection
             </h2>
             <p class="text-slate-400 mb-10 text-sm leading-relaxed">I am currently open to new opportunities in IT and Cybersecurity. Secure communication channels are open.</p>
-            <a href="mailto:lornam02091@gmail.com" class="inline-flex items-center gap-2 px-8 py-4 bg-cyan-950/50 border border-cyan-500 text-cyan-400 font-bold hover:bg-cyan-500 hover:text-slate-950 transition-all shadow-[0_0_15px_rgba(6,182,212,0.2)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] uppercase tracking-widest text-sm group">
-                <svg class="w-5 h-5 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                lornam02091@gmail.com
-            </a>
-            <p class="mt-6 text-slate-500 text-sm tracking-widest">PHONE: 787-205-3124</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="mailto:lornam02091@gmail.com" class="inline-flex items-center gap-2 px-8 py-4 bg-cyan-950/50 border border-cyan-500 text-cyan-400 font-bold hover:bg-cyan-500 hover:text-slate-950 transition-all shadow-[0_0_15px_rgba(6,182,212,0.2)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] uppercase tracking-widest text-sm group">
+                    <svg class="w-5 h-5 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    lornam02091@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/lornamicheller/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-slate-900/50 border border-slate-700 text-slate-300 font-bold hover:bg-slate-800 hover:text-cyan-400 hover:border-cyan-500/50 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(6,182,212,0.2)] uppercase tracking-widest text-sm group">
+                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+            <p class="mt-8 text-slate-500 text-sm tracking-widest">PHONE: 787-205-3124</p>
         </div>
     </section>
 
@@ -293,20 +375,5 @@
         <p>&copy; 2026 Lorna M. Rivera Vázquez. Built with HTML, Tailwind CSS & Vanilla JS.</p>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-
-            document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                observer.observe(el);
-            });
-        });
-    </script>
 </body>
 </html>
